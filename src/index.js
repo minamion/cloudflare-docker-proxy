@@ -1,20 +1,14 @@
+import DOCS from '../help.html'
+ 
+
+
 addEventListener("fetch", (event) => {
   event.passThroughOnException();
   event.respondWith(handleRequest(event.request));
 });
 
 const dockerHub = "https://registry-1.docker.io";
-import DOCS from './help.html'
- 
-// return docs
-if (url.pathname === "/") {
-  return new Response(DOCS, {
-    status: 200,
-    headers: {
-      "content-type": "text/html"
-    }
-  });
-}
+
 const routes = {
   // production
   "docker.libcuda.so": dockerHub,
@@ -51,6 +45,15 @@ async function handleRequest(request) {
         status: 404,
       }
     );
+  }
+  // return docs
+  if (url.pathname === "/") {
+    return new Response(DOCS, {
+      status: 200,
+      headers: {
+        "content-type": "text/html"
+      }
+    });
   }
   const isDockerHub = upstream == dockerHub;
   const authorization = request.headers.get("Authorization");
