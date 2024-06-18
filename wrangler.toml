@@ -16,7 +16,7 @@ TARGET_UPSTREAM = "https://registry-1.docker.io"
 name = "cloudflare-docker-proxy"
 routes = [
   { pattern = "docker.seaslug.moe", custom_domain = true },
-  { pattern = "quey.seaslug.moe", custom_domain = true },
+  { pattern = "quay.seaslug.moe", custom_domain = true },
   { pattern = "gcr.seaslug.moe", custom_domain = true },
   { pattern = "k8s-gcr.seaslug.moe", custom_domain = true },
   { pattern = "k8s.seaslug.moe", custom_domain = true },
